@@ -62,7 +62,7 @@ class TaskController extends Controller
 
     private function authorizeTask(Request $request, Task $task): void
     {
-        if ($task->project->user_id !== $request->user()->id) {
+        if ($task->project?->user_id !== $request->user()->id) {
             abort(403, 'Unauthorized action.');
         }
     }
